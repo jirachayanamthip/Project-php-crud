@@ -1,5 +1,5 @@
 <div>
-    <h2>Product List</h2>
+    <h2>รายการสินค้า</h2>
     <?php
     include 'components/search.php';
     ?>
@@ -7,16 +7,16 @@
     <br>
     <table border="1">
         <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Picture</th>
-            <th>Category</th>
-            <th>Description</th>
-            <th>Price</th>
-            <th>Stock</th>
-            <th>Create Date</th>
-            <th>Update Date</th>
-            <th>Actions</th>
+            <th>ไอดี</th>
+            <th>ชื่อ</th>
+            <th>รูปภาพ</th>
+            <th>หมวดหมู่</th>
+            <th>คำอธิบาย</th>
+            <th>ราคา</th>
+            <th>คลัง</th>
+            <th>วันที่สร้าง</th>
+            <th>อัพเดทเมื่อ</th>
+            <th>ดำเนินการ</th>
         </tr>
         <?php
         include 'sql/connect.php';
@@ -37,13 +37,13 @@
                     <td>{$row['create_date']}</td>
                     <td>{$row['update_date']}</td>
                     <td>
-                        <a href='update.php?id={$row['id']}'>Edit</a>
-                        <a href='delete.php?id={$row['id']}'>Delete</a>
+                        <a href='update.php?id={$row['id']}'>แก้ไข</a>
+                        <a href='delete.php?id={$row['id']}'>ลบ</a>
                     </td>
                 </tr>";
             }
         } else {
-            echo "<tr><td colspan='10'>No products found</td></tr>";
+            echo "<tr><td colspan='10'>ไม่มีข้อมูลสินค้า</td></tr>";
         }
         $conn->close();
         ?>

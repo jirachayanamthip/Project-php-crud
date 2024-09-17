@@ -1,5 +1,11 @@
 <?php
 include 'sql/connect.php';
+session_start();
+
+if (!isset($_SESSION['username'])) {
+    header("Location: login.php");
+    exit();
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST["name"];
@@ -22,13 +28,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 
-<h2>Products</h2>
+<h2>สิ้นต้า</h2>
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-    <input type="text" name="name" placeholder="Name" required>
-    <input type="text" name="picture" placeholder="Picture" required>
-    <input type="text" name="category" placeholder="Category" required>
-    <textarea name="description" placeholder="Description" required></textarea>
-    <input type="number" name="price" placeholder="Price" required>
-    <input type="number" name="stock" placeholder="Stock" required>
-    <button type="submit" onclick="alert('Add Product Successful!')">Add Product</button>
+    <input type="text" name="name" placeholder="ชื่อ" required><br>
+    <input type="text" name="picture" placeholder="รูป" required><br>
+    <input type="text" name="category" placeholder="หม่วดหมู่" required><br>
+    <textarea name="description" placeholder="คำอธิบาย" required></textarea><br>
+    <input type="number" name="price" placeholder="ราคา" required><br>
+    <input type="number" name="stock" placeholder="คลัง" required><br>
+    <button type="submit" onclick="alert('Add Product Successful!')">เพิ่มข้อมูลสินค้า</button>
 </form>
+<p><a href="index.php">กลับไปหน้าหลัก</a></p>
